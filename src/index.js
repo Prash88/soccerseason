@@ -1,9 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./css/index.css";
-import App from "./components/App";
-import registerServiceWorker from "./registerServiceWorker";
-import { BrowserRouter, Switch } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './css/index.css';
+import App from './components/App';
+import registerServiceWorker from './registerServiceWorker';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
 registerServiceWorker();
 ReactDOM.render(
@@ -12,5 +12,5 @@ ReactDOM.render(
       <App />
     </Switch>
   </BrowserRouter>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
