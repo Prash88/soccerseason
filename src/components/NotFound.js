@@ -1,5 +1,12 @@
-//@flow
-import React, { Component } from 'react';
+/**
+ * Copyright 2017-present FireAnt. All Rights Reserved.
+ *
+ * @providesModule NotFound
+ * @flow
+ * @format
+*/
+
+import React from 'react';
 import '../css/App.css';
 
 const NotFound = (): React.Element<*> =>
