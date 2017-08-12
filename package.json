@@ -2,6 +2,7 @@
   "name": "soccerseason",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://prash88.github.io/soccerseason",
   "dependencies": {
     "flow-bin": "^0.50.0",
     "gh-pages": "^1.0.0",
