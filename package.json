@@ -15,7 +15,10 @@
 		"tachyons": "^4.7.4"
 	},
 	"lint-staged": {
-		"src/**/*.{js,jsx,json,css}": ["prettier --single-quote --write", "git add"]
+		"src/**/*.{js,jsx,json,css}": [
+			"prettier --single-quote --use-tabs --write",
+			"git add"
+		]
 	},
 	"scripts": {
 		"predeploy": "npm run build",

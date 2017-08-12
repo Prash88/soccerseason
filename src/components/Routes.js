@@ -15,14 +15,14 @@ import idx from 'idx';
 const PUBLIC_URL = idx(process, _ => _.env.PUBLIC_URL) || '';
 
 const Routes = (): React.Element<*> =>
-  <Switch>
-    <Route
-      exact
-      path={PUBLIC_URL + '/'}
-      render={defaultProps => <Home {...defaultProps} />}
-    />
-    <Route exact path="/404" component={NotFound} />
-    <Redirect to="/404" push />
-  </Switch>;
+	<Switch>
+		<Route
+			exact
+			path={PUBLIC_URL + '/'}
+			render={defaultProps => <Home {...defaultProps} />}
+		/>
+		<Route exact path="/404" component={NotFound} />
+		<Redirect to="/404" push />
+	</Switch>;
 
 export default withRouter(Routes);

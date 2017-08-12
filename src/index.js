@@ -7,10 +7,10 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 
 registerServiceWorker();
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <App />
-    </Switch>
-  </BrowserRouter>,
-  document.getElementById('root')
+	<BrowserRouter>
+		<Switch>
+			<App />
+		</Switch>
+	</BrowserRouter>,
+	document.getElementById('root')
 );
