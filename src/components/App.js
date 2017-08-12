@@ -6,11 +6,10 @@
  * @format
 */
 
-import React from 'react';
-import '../css/App.css';
-import Routes from './Routes';
+import React from "react";
+import "../css/App.css";
+import Routes from "./Routes";
 
-const App = (): React.Element<*> =>
-  <Routes />;
+const App = (): React.Element<*> => <Routes />;
 
 export default App;
