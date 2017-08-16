@@ -8,12 +8,33 @@
 
 import React from 'react';
 import '../css/League.css';
+import idx from 'idx';
+import { withRouter } from 'react-router-dom';
 
-const League = (): React.Element<*> =>
-	<div className="column">
-		<div className="league">
-			<h2 className="leagueText">Text</h2>
-		</div>
-	</div>;
+type LeagueProps = {
+	data: Object,
+	history: Object
+};
 
-export default League;
+class League extends React.Component {
+	props: LeagueProps;
+	render() {
+		return (
+			<div
+				className="column"
+				onClick={() =>
+					this.props.history.push('/details/' + this.props.data.id, {
+						data: this.props.data
+					})}
+			>
+				<div className="league">
+					<h2 className="leagueHeaderText">
+						{idx(this.props.data, _ => _.caption) || ''}
+					</h2>
+				</div>
+			</div>
+		);
+	}
+}
+
+export default withRouter(League);
