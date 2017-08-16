@@ -37,7 +37,7 @@ class LeagueDetails extends Component<Props, State> {
 			};
 			axios
 				.get(
-					'http://api.football-data.org/v1/soccerseasons/' +
+					'https://api.football-data.org/v1/soccerseasons/' +
 						parseInt(this.props.match.params.id, 10),
 					config
 				)
