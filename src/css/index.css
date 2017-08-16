@@ -1,5 +1,45 @@
+/* Base */
 body {
-	margin: 0;
-	padding: 0;
-	font-family: sans-serif;
+	background: #f3f3f3;
+	padding: 20px;
+	font-family: "Open Sans", sans-serif;
+}
+
+/* Container */
+.container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	width: 90%;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+/* Column */
+.column {
+	-ms-flex-preferred-size: 33.33333%;
+	flex-basis: 33.33333%;
+	width: 33.33333%;
+	padding: 0 10px;
+	box-sizing: border-box;
+}
+@media (max-width: 900px) {
+	.column {
+		-ms-flex-preferred-size: 50%;
+		flex-basis: 50%;
+		width: 50%;
+	}
+}
+@media (max-width: 600px) {
+	.column {
+		-ms-flex-preferred-size: 100%;
+		flex-basis: 100%;
+		width: 100%;
+	}
 }

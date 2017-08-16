@@ -7,7 +7,6 @@
 */
 
 import React from 'react';
-import '../css/App.css';
 import Routes from './Routes';
 
 const App = (): React.Element<*> => <Routes />;

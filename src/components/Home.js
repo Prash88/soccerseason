@@ -7,11 +7,18 @@
 */
 
 import React from 'react';
-import '../css/App.css';
+import League from './League';
 
 const Home = (): React.Element<*> =>
-	<div>
-		<h1>Welcome</h1>
+	<div className="app">
+		<div className="container">
+			<League />
+			<League />
+			<League />
+			<League />
+			<League />
+			<League />
+		</div>
 	</div>;
 
 export default Home;
