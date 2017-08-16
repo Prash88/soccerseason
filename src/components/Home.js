@@ -11,11 +11,22 @@ import League from './League';
 import axios from 'axios';
 import idx from 'idx';
 
-class Home extends Component {
-	state = {
-		data: []
-	};
+type State = {
+	data: Array<Object>
+};
 
+type Props = {};
+
+class Home extends Component<Props, State> {
+	state: State;
+	props: Props;
+
+	constructor(props: Props) {
+		super(props);
+		this.state = {
+			data: []
+		};
+	}
 	componentWillMount() {
 		const config = {
 			headers: { 'X-Auth-Token': 'eba8eb46e6ab4af3914fd93b4eeedb0f' }
@@ -23,7 +34,7 @@ class Home extends Component {
 		axios
 			.get('http://api.football-data.org/v1/soccerseasons', config)
 			.then(response => {
-				this.setState({ data: response.data });
+				this.setState({ data: idx(response, _ => _.data) || [] });
 			})
 			.catch(error => {
 				console.log(error);

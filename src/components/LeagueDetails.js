@@ -11,10 +11,24 @@ import '../css/League.css';
 import idx from 'idx';
 import axios from 'axios';
 
-class LeagueDetails extends Component {
-	state = {
-		data: idx(this.props, _ => _.location.state.data) || {}
-	};
+type State = {
+	data: Object
+};
+
+type Props = {
+	location: any,
+	match: any
+};
+
+class LeagueDetails extends Component<Props, State> {
+	state: State;
+	props: Props;
+	constructor(props: Props) {
+		super(props);
+		this.state = {
+			data: idx(this.props, _ => _.location.state.data) || {}
+		};
+	}
 
 	componentWillMount() {
 		if (Object.getOwnPropertyNames(this.state.data).length === 0) {

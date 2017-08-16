@@ -16,16 +16,19 @@ type LeagueProps = {
 	history: Object
 };
 
-class League extends React.Component {
+class League extends React.Component<LeagueProps> {
 	props: LeagueProps;
 	render() {
 		return (
 			<div
 				className="column"
 				onClick={() =>
-					this.props.history.push('/details/' + this.props.data.id, {
-						data: this.props.data
-					})}
+					this.props.history.push(
+						'/soccerseason/details/' + this.props.data.id,
+						{
+							data: this.props.data
+						}
+					)}
 			>
 				<div className="league">
 					<h2 className="leagueHeaderText">

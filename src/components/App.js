@@ -9,6 +9,6 @@
 import React from 'react';
 import Routes from './Routes';
 
-const App = (): React.Element<*> => <Routes />;
+const App = (): React$Element<any> => <Routes />;
 
 export default App;

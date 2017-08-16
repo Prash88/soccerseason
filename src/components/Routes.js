@@ -15,12 +15,17 @@ import idx from 'idx';
 
 const PUBLIC_URL = idx(process, _ => _.env.PUBLIC_URL) || '';
 
-const Routes = (): React.Element<*> =>
+const Routes = (): React$Element<any> =>
 	<Switch>
 		<Route exact path={PUBLIC_URL + '/'} component={Home} />
-		<Route exact path={PUBLIC_URL + '/details/:id'} component={LeagueDetails} />
-		<Route exact path="/404" component={NotFound} />
-		<Redirect to="/404" push />
+		<Route exact path={PUBLIC_URL + '/soccerseason/'} component={Home} />
+		<Route
+			exact
+			path={PUBLIC_URL + '/soccerseason/details/:id'}
+			component={LeagueDetails}
+		/>
+		<Route exact path="/soccerseason/404" component={NotFound} />
+		<Redirect to="/soccerseason/404" push />
 	</Switch>;
 
 export default withRouter(Routes);

@@ -8,7 +8,7 @@
 
 import React from 'react';
 
-const NotFound = (): React.Element<*> =>
+const NotFound = (): React$Element<any> =>
 	<div>
 		<h1>Not Found</h1>
 	</div>;
