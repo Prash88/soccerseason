@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://prash88.github.io/soccerseason",
-  "proxy": "https://api.football-data.org/v1/",
   "dependencies": {
     "axios": "^0.16.2",
     "flow-bin": "^0.50.0",
