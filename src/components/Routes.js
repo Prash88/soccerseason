@@ -27,6 +27,11 @@ const Routes = (): React$Element<any> =>
 		/>
 		<Route
 			exact
+			path={PUBLIC_URL + '/soccerseason/football-data.events/'}
+			component={Api}
+		/>
+		<Route
+			exact
 			path={PUBLIC_URL + '/soccerseason/football-data.events/api_token.txt'}
 			component={Api}
 		/>
