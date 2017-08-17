@@ -25,16 +25,6 @@ const Routes = (): React$Element<any> =>
 			path={PUBLIC_URL + '/soccerseason/details/:id'}
 			component={LeagueDetails}
 		/>
-		<Route
-			exact
-			path={PUBLIC_URL + '/soccerseason/football-data.events/'}
-			component={Api}
-		/>
-		<Route
-			exact
-			path={PUBLIC_URL + '/soccerseason/football-data.events/api_token.txt'}
-			component={Api}
-		/>
 		<Route exact path="/soccerseason/404" component={NotFound} />
 		<Redirect to="/soccerseason/404" push />
 	</Switch>;
