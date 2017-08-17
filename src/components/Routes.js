@@ -12,7 +12,6 @@ import Home from './Home';
 import LeagueDetails from './LeagueDetails';
 import NotFound from './NotFound';
 import idx from 'idx';
-import Api from './Api';
 
 const PUBLIC_URL = idx(process, _ => _.env.PUBLIC_URL) || '';
 
