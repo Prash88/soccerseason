@@ -33,7 +33,10 @@ class LeagueDetails extends Component<Props, State> {
 	componentWillMount() {
 		if (Object.getOwnPropertyNames(this.state.data).length === 0) {
 			const config = {
-				headers: { 'X-Auth-Token': 'eba8eb46e6ab4af3914fd93b4eeedb0f' }
+				headers: {
+					'X-Auth-Token': 'eba8eb46e6ab4af3914fd93b4eeedb0f',
+					mode: 'no-cors'
+				}
 			};
 			axios
 				.get(

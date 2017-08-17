@@ -29,7 +29,10 @@ class Home extends Component<Props, State> {
 	}
 	componentWillMount() {
 		const config = {
-			headers: { 'X-Auth-Token': 'eba8eb46e6ab4af3914fd93b4eeedb0f' }
+			headers: {
+				'X-Auth-Token': 'eba8eb46e6ab4af3914fd93b4eeedb0f',
+				mode: 'no-cors'
+			}
 		};
 		axios
 			.get('https://api.football-data.org/v1/soccerseasons', config)
