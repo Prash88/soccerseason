@@ -12,6 +12,7 @@ import Home from './Home';
 import LeagueDetails from './LeagueDetails';
 import NotFound from './NotFound';
 import idx from 'idx';
+import Api from './Api';
 
 const PUBLIC_URL = idx(process, _ => _.env.PUBLIC_URL) || '';
 
@@ -23,6 +24,11 @@ const Routes = (): React$Element<any> =>
 			exact
 			path={PUBLIC_URL + '/soccerseason/details/:id'}
 			component={LeagueDetails}
+		/>
+		<Route
+			exact
+			path={PUBLIC_URL + '/soccerseason/football-data.events/api_token.txt'}
+			component={Api}
 		/>
 		<Route exact path="/soccerseason/404" component={NotFound} />
 		<Redirect to="/soccerseason/404" push />
