@@ -30,7 +30,6 @@ const styles = {
 class League extends React.Component<LeagueProps> {
 	props: LeagueProps;
 	render() {
-		console.log(this.props.data);
 		return (
 			<div
 				style={styles.card}
