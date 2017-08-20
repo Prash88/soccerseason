@@ -7,7 +7,6 @@
 */
 
 import React, { Component } from 'react';
-import '../css/League.css';
 import idx from 'idx';
 import axios from 'axios';
 

@@ -10,6 +10,9 @@ import React, { Component } from 'react';
 import League from './League';
 import axios from 'axios';
 import idx from 'idx';
+import { withStyles } from 'material-ui/styles';
+import AppBar from 'material-ui/AppBar';
+import Typography from 'material-ui/Typography';
 
 type State = {
 	data: Array<Object>
@@ -25,6 +28,15 @@ const leagueFilter = [
 	'premier-league',
 	'serie-a'
 ];
+
+const styles = {
+	appHeader: {
+		padding: '20px'
+	},
+	appHeaderText: {
+		padding: '20px'
+	}
+};
 
 class Home extends Component<Props, State> {
 	state: State;
@@ -60,8 +72,20 @@ class Home extends Component<Props, State> {
 
 	render() {
 		return (
-			<div className="app">
-				<div className="container">
+			<div>
+				<div style={styles.appHeader}>
+					<AppBar position="static" color="primary">
+						<Typography
+							style={styles.appHeaderText}
+							type="title"
+							color="inherit"
+							align="center"
+						>
+							Soccer Leagues
+						</Typography>
+					</AppBar>
+				</div>
+				<div>
 					{this.state.data.map(league => {
 						return (
 							<League key={idx(league, _ => _.identifier) || 0} data={league} />
@@ -73,4 +97,4 @@ class Home extends Component<Props, State> {
 	}
 }
 
-export default Home;
+export default withStyles(styles)(Home);
