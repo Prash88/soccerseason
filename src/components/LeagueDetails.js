@@ -90,7 +90,7 @@ class LeagueDetails extends Component<Props, State> {
 					<Toolbar>
 						<IconButton
 							aria-label="ArrowBack"
-							onClick={() => this.props.history.push('/')}
+							onClick={() => this.props.history.push('/soccerseason/')}
 						>
 							<ArrowBackIcon color="white" />
 						</IconButton>
