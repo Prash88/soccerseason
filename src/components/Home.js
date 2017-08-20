@@ -17,6 +17,15 @@ type State = {
 
 type Props = {};
 
+const leagueFilter = [
+	'bundesliga',
+	'eredivisie',
+	'liga',
+	'ligue1',
+	'premier-league',
+	'serie-a'
+];
+
 class Home extends Component<Props, State> {
 	state: State;
 	props: Props;
@@ -30,13 +39,19 @@ class Home extends Component<Props, State> {
 	componentWillMount() {
 		const config = {
 			headers: {
-				'X-Auth-Token': 'eba8eb46e6ab4af3914fd93b4eeedb0f'
+				'X-Mashape-Key': 'feOdU1oCCMmshGf0mInizsHcrvNpp1uQyAAjsnnlfdvUNFrga7',
+				Accept: 'application/json'
 			}
 		};
 		axios
-			.get('https://api.football-data.org/v1/soccerseasons', config)
+			.get(
+				'https://sportsop-soccer-sports-open-data-v1.p.mashape.com/v1/leagues',
+				config
+			)
 			.then(response => {
-				this.setState({ data: idx(response, _ => _.data) || [] });
+				let data = idx(response, _ => _.data.data.leagues) || [];
+				data = data.filter(league => leagueFilter.includes(league.league_slug));
+				this.setState({ data });
 			})
 			.catch(error => {
 				console.log(error);
@@ -48,7 +63,9 @@ class Home extends Component<Props, State> {
 			<div className="app">
 				<div className="container">
 					{this.state.data.map(league => {
-						return <League key={idx(league, _ => _.id) || 0} data={league} />;
+						return (
+							<League key={idx(league, _ => _.identifier) || 0} data={league} />
+						);
 					})}
 				</div>
 			</div>

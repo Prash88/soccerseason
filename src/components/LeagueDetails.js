@@ -12,6 +12,7 @@ import idx from 'idx';
 import axios from 'axios';
 
 type State = {
+	details: Object,
 	data: Object
 };
 
@@ -26,54 +27,40 @@ class LeagueDetails extends Component<Props, State> {
 	constructor(props: Props) {
 		super(props);
 		this.state = {
-			data: idx(this.props, _ => _.location.state.data) || {}
+			data: {}
 		};
 	}
 
 	componentWillMount() {
-		if (Object.getOwnPropertyNames(this.state.data).length === 0) {
-			const config = {
-				headers: {
-					'X-Auth-Token': 'eba8eb46e6ab4af3914fd93b4eeedb0f'
-				}
-			};
-			axios
-				.get(
-					'https://api.football-data.org/v1/soccerseasons/' +
-						parseInt(this.props.match.params.id, 10),
-					config
-				)
-				.then(response => {
-					this.setState({ data: response.data });
-				})
-				.catch(error => {
-					console.log(error);
-				});
-		}
+		const config = {
+			headers: {
+				'X-Mashape-Key': 'feOdU1oCCMmshGf0mInizsHcrvNpp1uQyAAjsnnlfdvUNFrga7',
+				Accept: 'application/json'
+			}
+		};
+		axios
+			.get(
+				'https://sportsop-soccer-sports-open-data-v1.p.mashape.com/v1/leagues/' +
+					this.props.match.params.id +
+					'/seasons/17-18/standings',
+				config
+			)
+			.then(response => {
+				const data = idx(response, _ => _.data.data.standings) || [];
+				this.setState({ data });
+			})
+			.catch(error => {
+				console.log(error);
+			});
 	}
 
 	render() {
-		if (Object.getOwnPropertyNames(this.state.data).length === 0) {
-			return <div />;
-		}
+		const name = idx(this.props, _ => _.location.state.details.name);
 		return (
 			<div>
 				<h2 className="leagueHeaderText">
-					{idx(this.state.data, _ => _.caption) || ''}
+					{name}
 				</h2>
-				<p className="leagueText">
-					NumberOfMatchdays :{' '}
-					{idx(this.state.data, _ => _.numberOfMatchdays) || 0}
-				</p>
-				<p className="leagueText">
-					CurrentMatchday : {idx(this.state.data, _ => _.currentMatchday) || 0}
-				</p>
-				<p className="leagueText">
-					NumberOfTeams : {idx(this.state.data, _ => _.numberOfTeams) || 0}
-				</p>
-				<p className="leagueText">
-					NumberOfGames : {idx(this.state.data, _ => _.numberOfGames) || 0}
-				</p>
 			</div>
 		);
 	}

@@ -24,15 +24,15 @@ class League extends React.Component<LeagueProps> {
 				className="column"
 				onClick={() =>
 					this.props.history.push(
-						'/soccerseason/details/' + this.props.data.id,
+						'/soccerseason/details/' + this.props.data.league_slug,
 						{
-							data: this.props.data
+							details: this.props.data
 						}
 					)}
 			>
 				<div className="league">
 					<h2 className="leagueHeaderText">
-						{idx(this.props.data, _ => _.caption) || ''}
+						{idx(this.props.data, _ => _.name) || ''}
 					</h2>
 				</div>
 			</div>
